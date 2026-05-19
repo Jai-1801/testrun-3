@@ -1,0 +1,323 @@
+/* ==========================================================================
+   PROTOTYPE CHROME
+   Styles specific to the design-system browser shell.
+   The redesigned product surfaces themselves use only tokens.css.
+   ========================================================================== */
+
+.proto-app {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  min-height: 100vh;
+  background: var(--eth-bone);
+}
+
+/* ---- Left navigation ---- */
+.proto-nav {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  border-right: 1px solid var(--eth-border);
+  background: var(--eth-paper);
+  padding: 32px 0 48px;
+}
+
+.proto-nav-brand {
+  padding: 0 28px 24px;
+  border-bottom: 1px solid var(--eth-border);
+}
+.proto-nav-brand .wordmark {
+  font-family: var(--eth-font-display);
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--eth-ink);
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+.proto-nav-brand .wordmark::after {
+  content: "·";
+  color: var(--eth-ash);
+}
+.proto-nav-brand .subtitle {
+  font-family: var(--eth-font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--eth-text-subtle);
+  margin: 6px 0 0;
+}
+
+.proto-nav-section {
+  padding: 24px 0 4px;
+}
+.proto-nav-section-title {
+  font-family: var(--eth-font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--eth-ash);
+  padding: 0 28px 8px;
+  margin: 0;
+}
+
+.proto-nav-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 8px 28px 8px 28px;
+  background: none;
+  border: 0;
+  border-left: 2px solid transparent;
+  font-family: var(--eth-font-sans);
+  font-size: 13px;
+  color: var(--eth-text);
+  text-align: left;
+  cursor: pointer;
+  transition: background var(--eth-dur-fast) var(--eth-ease),
+              color var(--eth-dur-fast) var(--eth-ease),
+              border-color var(--eth-dur-fast) var(--eth-ease);
+}
+.proto-nav-item:hover {
+  background: var(--eth-fog);
+  color: var(--eth-text-strong);
+}
+.proto-nav-item.active {
+  background: var(--eth-white);
+  color: var(--eth-ink);
+  border-left-color: var(--eth-ink);
+  font-weight: 500;
+}
+.proto-nav-item .num {
+  font-family: var(--eth-font-mono);
+  font-size: 10px;
+  color: var(--eth-ash);
+  letter-spacing: 0.04em;
+}
+
+/* ---- Main canvas ---- */
+.proto-main {
+  min-width: 0;
+}
+
+.proto-header {
+  padding: 40px 64px 36px;
+  border-bottom: 1px solid var(--eth-border);
+  background: var(--eth-bone);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+.proto-header-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+}
+.proto-header-title {
+  font-family: var(--eth-font-display);
+  font-size: 36px;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  color: var(--eth-ink);
+  margin: 16px 0 0;
+}
+.proto-header-eyebrow {
+  font-family: var(--eth-font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--eth-ash);
+  margin: 0;
+}
+.proto-header-meta {
+  font-family: var(--eth-font-mono);
+  font-size: 11px;
+  color: var(--eth-ash);
+  letter-spacing: 0.04em;
+  text-align: right;
+}
+
+.proto-body {
+  padding: 48px 64px 96px;
+  max-width: 1440px;
+}
+
+/* Frame used to host a full product surface inside the canvas */
+.proto-frame {
+  background: var(--eth-white);
+  border: 1px solid var(--eth-border);
+  border-radius: var(--eth-radius-md);
+  overflow: hidden;
+  box-shadow: 0 1px 0 0 rgba(10,10,10,0.02);
+}
+.proto-frame-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--eth-border);
+  background: var(--eth-paper);
+  font-family: var(--eth-font-mono);
+  font-size: 11px;
+  color: var(--eth-ash);
+  letter-spacing: 0.04em;
+}
+.proto-frame-bar .dots {
+  display: inline-flex;
+  gap: 6px;
+}
+.proto-frame-bar .dot {
+  width: 10px; height: 10px; border-radius: 999px;
+  border: 1px solid var(--eth-border-strong);
+}
+.proto-frame-body {
+  background: var(--eth-white);
+}
+
+/* Annotated grid */
+.proto-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+.proto-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.proto-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+/* Documentation blocks */
+.doc-block {
+  max-width: 760px;
+}
+.doc-block p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--eth-text);
+  margin: 0 0 1em;
+}
+.doc-block p:last-child { margin-bottom: 0; }
+.doc-block ul {
+  margin: 0 0 1em;
+  padding-left: 1.25em;
+  color: var(--eth-text);
+}
+.doc-block li {
+  margin-bottom: 0.4em;
+  line-height: 1.7;
+}
+.doc-block strong { color: var(--eth-text-strong); font-weight: 500; }
+.doc-block h3 {
+  font-family: var(--eth-font-display);
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  margin: 32px 0 12px;
+  color: var(--eth-ink);
+}
+.doc-block h4 {
+  font-family: var(--eth-font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0;
+  margin: 24px 0 8px;
+  color: var(--eth-ink);
+}
+
+/* Swatches */
+.swatch {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.swatch-chip {
+  height: 80px;
+  border-radius: var(--eth-radius-sm);
+  border: 1px solid var(--eth-border);
+}
+.swatch-name {
+  font-family: var(--eth-font-mono);
+  font-size: 11px;
+  color: var(--eth-text-strong);
+  letter-spacing: 0.02em;
+}
+.swatch-meta {
+  font-family: var(--eth-font-mono);
+  font-size: 10px;
+  color: var(--eth-ash);
+}
+
+/* Specimen labels */
+.spec-row {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 32px;
+  align-items: baseline;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--eth-border);
+}
+.spec-label {
+  font-family: var(--eth-font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--eth-ash);
+}
+
+/* Code block */
+.code-block {
+  font-family: var(--eth-font-mono);
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--eth-paper);
+  background: var(--eth-ink);
+  padding: 20px 24px;
+  border-radius: var(--eth-radius-sm);
+  overflow-x: auto;
+  margin: 0;
+  white-space: pre;
+}
+
+/* Status legend cell */
+.legend-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--eth-border);
+  font-size: 14px;
+  color: var(--eth-text);
+}
+.legend-row:last-child { border-bottom: 0; }
+.legend-row code {
+  font-family: var(--eth-font-mono);
+  font-size: 11px;
+  color: var(--eth-ash);
+  margin-left: auto;
+}
+
+/* Annotation pill — used to call out fixes on screens */
+.anno {
+  position: absolute;
+  background: var(--eth-ink);
+  color: var(--eth-paper);
+  font-family: var(--eth-font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  border-radius: 999px;
+  pointer-events: none;
+}

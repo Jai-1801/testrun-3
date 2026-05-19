@@ -1,0 +1,683 @@
+/* ==========================================================================
+   ETHENIOS — Design System Tokens
+   Editorial / Institutional · Compliance-grade · Black & White
+   --------------------------------------------------------------------------
+   These tokens power both the prototype and the production codebase.
+   Drop this into src/styles/globals.css (or import alongside it) and the
+   entire system will inherit the new visual language.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500;6..72,600&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap');
+
+:root {
+  /* ----------------------------------------------------------------------
+     COLOR — Editorial Mono
+     Compliance is about clarity. Black and white communicates seriousness
+     and lets data, status, and content lead. Semantic accents are reserved
+     for state (pass/watch/fail) and used SPARINGLY as foreground only.
+     ---------------------------------------------------------------------- */
+
+  /* Neutrals (cool grey scale on pure white) */
+  --eth-ink:        #0A0A0A;   /* primary text, primary CTA fill */
+  --eth-ink-soft:   #1A1A1A;   /* body text */
+  --eth-graphite:   #4A4A4A;   /* secondary text */
+  --eth-ash:        #767676;   /* tertiary text, metadata */
+  --eth-silver:     #BCBCBC;   /* disabled, dividers strong */
+  --eth-mist:       #E6E6E6;   /* hairline borders */
+  --eth-fog:        #F2F2F2;   /* subtle fills, hover */
+  --eth-bone:       #FFFFFF;   /* page background — pure white */
+  --eth-paper:      #F8F8F8;   /* sunken surface (input fills, sub-navs, table headers) */
+  --eth-white:      #FFFFFF;   /* surfaces, cards */
+
+  /* Semantic accents — fg only, never large fills */
+  --eth-pass:       #1F4F3F;   /* deep moss — compliant / passing */
+  --eth-pass-bg:    #ECF1EE;   /* very subtle pass tint */
+  --eth-watch:      #8A6A14;   /* amber — needs attention */
+  --eth-watch-bg:   #F4EFE3;
+  --eth-fail:       #8B2A1F;   /* rust — failing / overdue */
+  --eth-fail-bg:    #F3E8E5;
+  --eth-info:       #1A3F66;   /* deep ink-blue — informational */
+  --eth-info-bg:    #E7ECF2;
+
+  /* Surfaces */
+  --eth-surface:           var(--eth-white);
+  --eth-surface-sunken:    var(--eth-bone);
+  --eth-surface-elevated:  var(--eth-white);
+
+  /* Text */
+  --eth-text:           var(--eth-ink-soft);
+  --eth-text-strong:    var(--eth-ink);
+  --eth-text-muted:     var(--eth-graphite);
+  --eth-text-subtle:    var(--eth-ash);
+  --eth-text-inverse:   var(--eth-paper);
+
+  /* Borders */
+  --eth-border:         var(--eth-mist);
+  --eth-border-strong:  var(--eth-silver);
+  --eth-border-ink:     var(--eth-ink);
+
+  /* ----------------------------------------------------------------------
+     TYPOGRAPHY
+     Display: Newsreader (serif) — editorial, regulatory white-paper feel
+     Sans:    Geist            — neutral UI sans, tabular numerals
+     Mono:    Geist Mono       — metadata, IDs, timestamps, code
+     ---------------------------------------------------------------------- */
+
+  --eth-font-display: "Newsreader", "Source Serif 4", "Iowan Old Style", Georgia, serif;
+  --eth-font-sans:    "Geist", "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --eth-font-mono:    "Geist Mono", "JetBrains Mono", "SF Mono", Consolas, monospace;
+
+  /* Type scale (16px base, modular) */
+  --eth-text-2xs:   0.6875rem;  /* 11 — eyebrow labels */
+  --eth-text-xs:    0.75rem;    /* 12 — small meta */
+  --eth-text-sm:    0.8125rem;  /* 13 — secondary */
+  --eth-text-base:  0.9375rem;  /* 15 — body */
+  --eth-text-md:    1rem;       /* 16 — emphasized body */
+  --eth-text-lg:    1.125rem;   /* 18 — large body */
+  --eth-text-xl:    1.375rem;   /* 22 — h4 */
+  --eth-text-2xl:   1.75rem;    /* 28 — h3 */
+  --eth-text-3xl:   2.25rem;    /* 36 — h2 */
+  --eth-text-4xl:   3rem;       /* 48 — h1 */
+  --eth-text-5xl:   4rem;       /* 64 — display */
+  --eth-text-6xl:   5.25rem;    /* 84 — hero */
+
+  /* Line heights */
+  --eth-leading-tight:   1.1;
+  --eth-leading-snug:    1.25;
+  --eth-leading-normal:  1.5;
+  --eth-leading-relaxed: 1.65;
+
+  /* Tracking */
+  --eth-tracking-tighter: -0.035em;
+  --eth-tracking-tight:   -0.02em;
+  --eth-tracking-normal:  0;
+  --eth-tracking-wide:    0.04em;
+  --eth-tracking-wider:   0.08em;
+  --eth-tracking-eyebrow: 0.14em;
+
+  /* Weights */
+  --eth-weight-light:    300;
+  --eth-weight-regular:  400;
+  --eth-weight-medium:   500;
+  --eth-weight-semibold: 600;
+  --eth-weight-bold:     700;
+
+  /* ----------------------------------------------------------------------
+     SPACING — 4px base, generous breathing room.
+     ---------------------------------------------------------------------- */
+  --eth-space-0:   0;
+  --eth-space-1:   0.25rem;   /* 4 */
+  --eth-space-2:   0.5rem;    /* 8 */
+  --eth-space-3:   0.75rem;   /* 12 */
+  --eth-space-4:   1rem;      /* 16 */
+  --eth-space-5:   1.5rem;    /* 24 */
+  --eth-space-6:   2rem;      /* 32 */
+  --eth-space-7:   2.5rem;    /* 40 */
+  --eth-space-8:   3rem;      /* 48 */
+  --eth-space-9:   4rem;      /* 64 */
+  --eth-space-10:  6rem;      /* 96 */
+  --eth-space-11:  8rem;      /* 128 */
+
+  /* ----------------------------------------------------------------------
+     RADII — Restrained. Sharp documents, mild softening on controls.
+     ---------------------------------------------------------------------- */
+  --eth-radius-none: 0;
+  --eth-radius-xs:   2px;
+  --eth-radius-sm:   4px;     /* default for controls */
+  --eth-radius-md:   6px;     /* cards */
+  --eth-radius-lg:   10px;    /* large containers */
+  --eth-radius-pill: 999px;   /* used sparingly, only for status pills */
+
+  /* ----------------------------------------------------------------------
+     ELEVATION — Almost none. Borders carry the weight.
+     ---------------------------------------------------------------------- */
+  --eth-shadow-none: none;
+  --eth-shadow-xs:   0 1px 0 0 rgba(10,10,10,0.04);
+  --eth-shadow-sm:   0 1px 2px rgba(10,10,10,0.04), 0 0 0 1px rgba(10,10,10,0.04);
+  --eth-shadow-md:   0 4px 12px rgba(10,10,10,0.06), 0 0 0 1px rgba(10,10,10,0.04);
+  --eth-shadow-lg:   0 16px 48px rgba(10,10,10,0.12), 0 0 0 1px rgba(10,10,10,0.06);
+  --eth-shadow-overlay: 0 24px 64px rgba(10,10,10,0.18);
+
+  /* ----------------------------------------------------------------------
+     MOTION
+     ---------------------------------------------------------------------- */
+  --eth-ease:          cubic-bezier(0.2, 0.7, 0.2, 1);
+  --eth-ease-out:      cubic-bezier(0.16, 1, 0.3, 1);
+  --eth-dur-fast:      120ms;
+  --eth-dur-base:      200ms;
+  --eth-dur-slow:      320ms;
+
+  /* ----------------------------------------------------------------------
+     LAYOUT — Standardized page / row / grid rhythm.
+     Every core app surface inherits these so spacing stays predictable
+     and grids collapse gracefully on narrow viewports.
+     ---------------------------------------------------------------------- */
+  --eth-container:     1280px;
+  --eth-container-wide:1440px;
+  --eth-sidebar:       260px;
+  --eth-topbar:        64px;
+
+  /* Page padding inside the app shell content area */
+  --eth-page-pad-x:    2rem;     /* 32 — horizontal */
+  --eth-page-pad-y:    2rem;     /* 32 — vertical   */
+  --eth-page-pad-b:    3rem;     /* 48 — extra bottom for scroll comfort */
+
+  /* Consistent inter-block rhythm */
+  --eth-section-gap:   2rem;     /* 32 — between sections in a page (stat row → split row → table) */
+  --eth-row-gap:       1.5rem;   /* 24 — between cards in the same row */
+  --eth-tight-gap:     1rem;     /* 16 — between dense stat cards / KPI tiles */
+
+  /* Card padding (canonical) */
+  --eth-card-pad:       1.5rem;  /* 24 — default card padding */
+  --eth-card-pad-tight: 1.25rem; /* 20 — tight card */
+  --eth-card-pad-wide:  2rem;    /* 32 — wide card (legacy content) */
+
+  /* Z-index */
+  --eth-z-base:       0;
+  --eth-z-sticky:     100;
+  --eth-z-dropdown:   200;
+  --eth-z-overlay:    900;
+  --eth-z-modal:      1000;
+  --eth-z-toast:      1100;
+}
+
+/* ==========================================================================
+   GLOBAL BASE
+   ========================================================================== */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  margin: 0;
+  font-family: var(--eth-font-sans);
+  font-size: var(--eth-text-base);
+  line-height: var(--eth-leading-normal);
+  color: var(--eth-text);
+  background: var(--eth-bone);
+  font-feature-settings: "ss01", "cv11";
+}
+
+/* Tabular figures everywhere by default — compliance is a numbers game. */
+.eth-num,
+table,
+[data-numeric],
+.eth-meta {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Headings — serif display */
+.eth-h1, .eth-h2, .eth-h3, .eth-display, .eth-hero {
+  font-family: var(--eth-font-display);
+  font-weight: var(--eth-weight-regular);
+  color: var(--eth-text-strong);
+  letter-spacing: var(--eth-tracking-tight);
+  line-height: var(--eth-leading-tight);
+  margin: 0;
+}
+.eth-hero    { font-size: var(--eth-text-6xl); letter-spacing: var(--eth-tracking-tighter); }
+.eth-display { font-size: var(--eth-text-5xl); letter-spacing: var(--eth-tracking-tighter); }
+.eth-h1      { font-size: var(--eth-text-4xl); }
+.eth-h2      { font-size: var(--eth-text-3xl); }
+.eth-h3      { font-size: var(--eth-text-2xl); }
+
+/* Eyebrow labels (small caps, mono, letter-spaced) */
+.eth-eyebrow {
+  font-family: var(--eth-font-mono);
+  font-size: var(--eth-text-2xs);
+  font-weight: var(--eth-weight-medium);
+  text-transform: uppercase;
+  letter-spacing: var(--eth-tracking-eyebrow);
+  color: var(--eth-text-subtle);
+}
+
+.eth-meta {
+  font-family: var(--eth-font-mono);
+  font-size: var(--eth-text-xs);
+  color: var(--eth-text-subtle);
+}
+
+/* Hairline rule */
+.eth-rule {
+  border: 0;
+  border-top: 1px solid var(--eth-border);
+  margin: 0;
+}
+
+/* Selection */
+::selection {
+  background: var(--eth-ink);
+  color: var(--eth-paper);
+}
+
+/* Scrollbar (subtle) */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--eth-mist); border-radius: 999px; border: 2px solid var(--eth-bone); }
+::-webkit-scrollbar-thumb:hover { background: var(--eth-silver); }
+
+/* ==========================================================================
+   PRIMITIVES — Buttons, Inputs, Cards, Status, Tables
+   ========================================================================== */
+
+/* ---- Buttons ---- */
+.eth-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 40px;
+  padding: 0 1.125rem;
+  font-family: var(--eth-font-sans);
+  font-size: var(--eth-text-sm);
+  font-weight: var(--eth-weight-medium);
+  letter-spacing: 0.005em;
+  border-radius: var(--eth-radius-sm);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background var(--eth-dur-base) var(--eth-ease),
+              border-color var(--eth-dur-base) var(--eth-ease),
+              color var(--eth-dur-base) var(--eth-ease),
+              transform var(--eth-dur-fast) var(--eth-ease);
+  user-select: none;
+  white-space: nowrap;
+}
+.eth-btn:active { transform: translateY(0.5px); }
+.eth-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.eth-btn-primary {
+  background: var(--eth-ink);
+  color: var(--eth-paper);
+  border-color: var(--eth-ink);
+}
+.eth-btn-primary:hover { background: var(--eth-ink-soft); border-color: var(--eth-ink-soft); }
+
+.eth-btn-secondary {
+  background: var(--eth-white);
+  color: var(--eth-ink);
+  border-color: var(--eth-border-strong);
+}
+.eth-btn-secondary:hover { background: var(--eth-fog); border-color: var(--eth-ink); }
+
+.eth-btn-ghost {
+  background: transparent;
+  color: var(--eth-text);
+  border-color: transparent;
+}
+.eth-btn-ghost:hover { background: var(--eth-fog); color: var(--eth-text-strong); }
+
+.eth-btn-link {
+  background: transparent;
+  color: var(--eth-text-strong);
+  border-color: transparent;
+  height: auto;
+  padding: 0;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+}
+.eth-btn-link:hover { text-decoration-thickness: 1.5px; }
+
+.eth-btn-sm { height: 32px; padding: 0 0.875rem; font-size: var(--eth-text-xs); }
+.eth-btn-lg { height: 48px; padding: 0 1.5rem; font-size: var(--eth-text-md); }
+
+.eth-btn-danger {
+  background: var(--eth-white);
+  color: var(--eth-fail);
+  border-color: var(--eth-fail);
+}
+.eth-btn-danger:hover { background: var(--eth-fail-bg); }
+
+/* ---- Inputs ---- */
+.eth-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.eth-label {
+  font-family: var(--eth-font-sans);
+  font-size: var(--eth-text-sm);
+  font-weight: var(--eth-weight-medium);
+  color: var(--eth-text-strong);
+  letter-spacing: 0;
+}
+.eth-help {
+  font-size: var(--eth-text-xs);
+  color: var(--eth-text-subtle);
+  letter-spacing: 0;
+}
+.eth-input,
+.eth-textarea,
+.eth-select {
+  width: 100%;
+  height: 44px;
+  padding: 0 0.875rem;
+  font-family: var(--eth-font-sans);
+  font-size: var(--eth-text-base);
+  color: var(--eth-text-strong);
+  background: var(--eth-white);
+  border: 1px solid var(--eth-border-strong);
+  border-radius: var(--eth-radius-sm);
+  outline: none;
+  transition: border-color var(--eth-dur-base) var(--eth-ease),
+              box-shadow var(--eth-dur-base) var(--eth-ease);
+}
+.eth-textarea { height: auto; min-height: 96px; padding: 0.75rem 0.875rem; line-height: var(--eth-leading-normal); resize: vertical; }
+.eth-input:hover,
+.eth-textarea:hover,
+.eth-select:hover { border-color: var(--eth-graphite); }
+.eth-input:focus,
+.eth-textarea:focus,
+.eth-select:focus {
+  border-color: var(--eth-ink);
+  box-shadow: 0 0 0 3px rgba(10,10,10,0.08);
+}
+.eth-input::placeholder { color: var(--eth-ash); }
+
+/* Checkbox & Radio */
+.eth-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-size: var(--eth-text-sm);
+  color: var(--eth-text);
+  cursor: pointer;
+}
+.eth-check input { width: 16px; height: 16px; accent-color: var(--eth-ink); }
+
+/* ---- Cards ---- */
+.eth-card {
+  background: var(--eth-white);
+  border: 1px solid var(--eth-border);
+  border-radius: var(--eth-radius-md);
+  padding: var(--eth-card-pad);          /* 24 — canonical default */
+}
+.eth-card-tight { padding: var(--eth-card-pad-tight); }  /* 20 — stat tiles */
+.eth-card-wide  { padding: var(--eth-card-pad-wide); }   /* 32 — reading surfaces */
+.eth-card-flush { padding: 0; }
+
+/* ---- Status pills (small caps, mono, semantic fg only) ---- */
+.eth-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 4px 10px;
+  font-family: var(--eth-font-mono);
+  font-size: var(--eth-text-2xs);
+  font-weight: var(--eth-weight-medium);
+  text-transform: uppercase;
+  letter-spacing: var(--eth-tracking-wider);
+  border-radius: var(--eth-radius-pill);
+  background: var(--eth-fog);
+  color: var(--eth-text);
+  border: 1px solid transparent;
+}
+.eth-status::before {
+  content: "";
+  width: 6px; height: 6px;
+  border-radius: 999px;
+  background: currentColor;
+  flex-shrink: 0;
+}
+.eth-status-pass  { background: var(--eth-pass-bg);  color: var(--eth-pass);  }
+.eth-status-watch { background: var(--eth-watch-bg); color: var(--eth-watch); }
+.eth-status-fail  { background: var(--eth-fail-bg);  color: var(--eth-fail);  }
+.eth-status-info  { background: var(--eth-info-bg);  color: var(--eth-info);  }
+.eth-status-neutral{ background: var(--eth-fog);     color: var(--eth-graphite); }
+
+/* ---- Tables ---- */
+.eth-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--eth-text-sm);
+  color: var(--eth-text);
+}
+.eth-table thead th {
+  text-align: left;
+  font-family: var(--eth-font-mono);
+  font-size: var(--eth-text-2xs);
+  font-weight: var(--eth-weight-medium);
+  text-transform: uppercase;
+  letter-spacing: var(--eth-tracking-wider);
+  color: var(--eth-text-subtle);
+  padding: 0.75rem 1.5rem;          /* 12 / 24 — aligns with card headers */
+  border-bottom: 1px solid var(--eth-border);
+  background: var(--eth-paper);
+}
+.eth-table tbody td {
+  padding: 1rem 1.5rem;              /* 16 / 24 */
+  border-bottom: 1px solid var(--eth-border);
+  vertical-align: middle;
+}
+.eth-table tbody tr:last-child td { border-bottom: 0; }
+.eth-table tbody tr:hover td { background: var(--eth-paper); }
+
+/* ---- Sections ---- */
+.eth-section {
+  padding: var(--eth-space-10) var(--eth-space-8);
+}
+.eth-container {
+  max-width: var(--eth-container);
+  margin: 0 auto;
+}
+
+/* Focus ring */
+:focus-visible {
+  outline: 2px solid var(--eth-ink);
+  outline-offset: 2px;
+  border-radius: var(--eth-radius-sm);
+}
+
+/* ==========================================================================
+   LAYOUT UTILITIES — used by every core app surface (Platform / Org /
+   PolicyIQ / RegAtlas / Reports / Settings) to keep spacing, grid behaviour,
+   and overflow handling consistent.
+   ==========================================================================
+   Naming:
+     .eth-app-content  · the right-of-sidebar column (flex + min-width:0)
+     .eth-page         · the padded inner container for any app page
+     .eth-stack        · vertical stack with section-gap between blocks
+     .eth-stats-grid   · 4-up grid that collapses to 2 → 1 on narrow
+     .eth-split-2      · 2-up grid (left larger), collapses to 1
+     .eth-split-2-flip · 2-up grid (right larger), collapses to 1
+     .eth-two-pane     · fixed-left rail + flexible body, collapses
+     .eth-three-pane   · left rail + body + right rail, collapses
+     .eth-settings-pane· settings sub-nav + body, collapses
+     .eth-table-wrap   · horizontal-scroll wrapper for any wide table
+   ========================================================================== */
+
+.eth-app-content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  /* Container-query context so multi-pane surfaces collapse based on the
+     real app width, not the viewport. Prototype frames + production
+     side-by-side panels both end up narrower than the viewport. */
+  container-type: inline-size;
+  container-name: app;
+}
+
+.eth-page {
+  padding: 1.25rem var(--eth-page-pad-x) var(--eth-page-pad-b);   /* 20 top · 32 sides · 48 bottom */
+  min-width: 0;
+  flex: 1;
+}
+
+.eth-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--eth-section-gap);
+  min-width: 0;
+}
+.eth-stack-tight {
+  display: flex;
+  flex-direction: column;
+  gap: var(--eth-row-gap);
+  min-width: 0;
+}
+
+.eth-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--eth-tight-gap);
+  min-width: 0;
+}
+.eth-stats-grid > * { min-width: 0; }
+
+.eth-split-2,
+.eth-split-2-flip {
+  display: grid;
+  gap: var(--eth-row-gap);
+  min-width: 0;
+}
+.eth-split-2       { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); }
+.eth-split-2-flip  { grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); }
+.eth-split-2 > *,
+.eth-split-2-flip > * { min-width: 0; }
+
+.eth-two-pane {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: var(--eth-row-gap);
+  min-width: 0;
+  align-items: flex-start;
+}
+.eth-two-pane > * { min-width: 0; }
+
+/* Body-left + detail-right (e.g. Org Units main table + selected unit card) */
+.eth-detail-pane {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  gap: var(--eth-row-gap);
+  min-width: 0;
+  align-items: flex-start;
+}
+.eth-detail-pane > * { min-width: 0; }
+
+.eth-three-pane {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr) 320px;
+  gap: var(--eth-row-gap);
+  min-width: 0;
+  align-items: flex-start;
+}
+.eth-three-pane > * { min-width: 0; }
+
+.eth-settings-pane {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: var(--eth-space-7);
+  min-width: 0;
+  align-items: flex-start;
+}
+.eth-settings-pane > * { min-width: 0; }
+
+/* PolicyIQ reading pane — requirement body + side rail */
+.eth-reading-pane {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: var(--eth-row-gap);
+  min-width: 0;
+  align-items: flex-start;
+}
+.eth-reading-pane > * { min-width: 0; }
+/* Collapse handled by container query in the responsive block below. */
+
+/* Generic responsive form grids — for paired/triplet fields */
+.eth-grid-2,
+.eth-grid-3 {
+  display: grid;
+  gap: var(--eth-row-gap);
+  min-width: 0;
+}
+.eth-grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.eth-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.eth-grid-2 > *, .eth-grid-3 > * { min-width: 0; }
+@media (max-width: 720px) {
+  .eth-grid-2, .eth-grid-3 { grid-template-columns: 1fr; }
+}
+
+/* Topbar search — expands when room exists, collapses to icon when narrow */
+.eth-topbar-search             { width: 240px; }
+.eth-topbar-search__label,
+.eth-topbar-search__kbd        { display: inline-flex; }
+@container app (max-width: 1180px) {
+  .eth-topbar-search           { width: auto; padding: 8px; }
+  .eth-topbar-search__label,
+  .eth-topbar-search__kbd      { display: none; }
+}
+@container app (max-width: 720px) {
+  .eth-topbar-user__meta       { display: none; }
+}
+
+/* Tables that may overflow the viewport are wrapped in this. */
+.eth-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  /* Hairline borders only when there's overflow — we use a thin shadow trick: */
+  background:
+    linear-gradient(90deg, var(--eth-white) 30%, rgba(255,255,255,0)) 0 0/40px 100% no-repeat,
+    linear-gradient(-90deg, var(--eth-white) 30%, rgba(255,255,255,0)) 100% 0/40px 100% no-repeat,
+    linear-gradient(90deg,  rgba(10,10,10,0.06), rgba(10,10,10,0)) 0 0/14px 100% no-repeat,
+    linear-gradient(-90deg, rgba(10,10,10,0.06), rgba(10,10,10,0)) 100% 0/14px 100% no-repeat;
+  background-attachment: local, local, scroll, scroll;
+}
+.eth-table-wrap > table { min-width: 640px; }
+.eth-table-wrap > table.eth-table-wide { min-width: 880px; }
+
+/* Responsive — collapse multi-column layouts based on the APP container width
+   (not the viewport). The prototype frame is narrower than the viewport, and
+   in production users frequently have a side panel open. Container queries
+   keep RegAtlas, PolicyIQ, dashboards, and Org Units readable in both. */
+@container app (max-width: 1180px) {
+  .eth-stats-grid   { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .eth-split-2,
+  .eth-split-2-flip { grid-template-columns: minmax(0, 1fr); }
+  .eth-detail-pane  { grid-template-columns: minmax(0, 1fr); }
+  .eth-three-pane   {
+    grid-template-columns: 240px minmax(0, 1fr);
+  }
+  .eth-three-pane > *:last-child {
+    grid-column: 1 / -1;
+  }
+  .eth-reading-pane { grid-template-columns: 1fr; }
+}
+
+@container app (max-width: 880px) {
+  .eth-two-pane,
+  .eth-detail-pane,
+  .eth-three-pane,
+  .eth-settings-pane {
+    grid-template-columns: 1fr;
+  }
+  .eth-three-pane > * { grid-column: auto; }
+}
+
+@container app (max-width: 640px) {
+  .eth-stats-grid { grid-template-columns: 1fr; }
+}
+
+/* Last-resort viewport fallback for browsers without container queries
+   (Safari < 16). Will trigger at very narrow viewports. */
+@media (max-width: 880px) {
+  :root {
+    --eth-page-pad-x: 1.25rem;
+    --eth-section-gap: 1.5rem;
+    --eth-row-gap: 1rem;
+  }
+}
+
+/* Print */
+@media print {
+  body { background: white; }
+  .no-print { display: none !important; }
+}
